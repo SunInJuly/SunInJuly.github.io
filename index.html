@@ -1,1 +1,162 @@
-Hello World
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<style type = "text/css">
+.closed {background-color: #00BFFF; 
+		 color: #00BFFF; 
+		 float: left; 
+		 border: 2px solid #ffffff;
+		 text-align: center;
+		-webkit-user-select: none;
+		}
+.opened {background-color: #FFFFFF; 
+		 color: #00BFFF; 
+		 float: left; 
+		 border: 2px solid #ffffff;
+		 text-align: center;
+		-webkit-user-select: none;
+		}
+.fired {background-color: #FF0000; 
+		 color: #00BFFF; 
+		 float: left; 
+		 border: 2px solid #ffffff;
+		 text-align: center;
+		-webkit-user-select: none;
+		}
+.marked {background-color: #550000; 
+		 color: #550000; 
+		 float: left; 
+		 border: 2px solid #ffffff;
+		 text-align: center;
+		-webkit-user-select: none;
+		}
+</style>
+
+<script>
+var width, height;
+var win;
+
+function open_box(i, j, max_w, max_h, direction) {
+	if (i < 0 || j < 0 || i >= max_w || j >= max_h)
+		return;
+	div = $("#" + i + "\\." + j);
+	if (div.html() == '*' || div.hasClass('opened')) 
+		return;
+	div.removeClass('closed');
+	div.removeClass('marked');
+	div.addClass('opened');
+	if (direction != 3)
+		open_box(i, j - 1, max_w, max_h, 1);
+	if (direction != 4)
+		open_box(i - 1, j, max_w, max_h, 2);
+	if (direction != 1)
+		open_box(i, j + 1, max_w, max_h, 3);
+	if (direction != 2)
+		open_box(i + 1, j, max_w, max_h, 4);
+}
+
+function check() {
+	win = 1;
+	$("div[name='cell']").each(function(index) {
+		if ($(this).hasClass('closed') && $(this).html() != '*') {
+			win = 0;
+			return false;
+		}
+	});
+	if (win == 1)
+		alert('You win!');
+}
+
+$(window).load(function() {
+	$(document).on("contextmenu",function(e){
+		e.preventDefault();
+	});
+	$("#form_submit").click(function(e) {
+		var i, j, k, l;
+		e.preventDefault();
+		$("div[name='cell']").remove();
+		width = parseInt(600 / $("#width").val());
+		height = parseInt(400 / $("#height").val());
+		for (j = 0; j < $("#height").val(); j++) {
+			for (i = 0; i < $("#width").val(); i++) {
+				prob = parseFloat($("#mines").val()) / ($("#width").val() * $("#height").val());
+				if (Math.random() < prob) 
+					mine = '*';
+				else
+					mine = '';
+				box = $("#field").append('<div name="cell" id="' + i + '.' + j + '" style="width: ' + width + 
+					'px; height: ' + height + 'px; line-height: ' + height + 'px;" class="closed">' + mine + '</div>');
+			}
+			$("#field").append('<div style="clear: both;"></div>');
+		}
+		for (j = 0; j < $("#height").val(); j++) {
+			for (i = 0; i < $("#width").val(); i++) {
+				div = $("#" + i + "\\." + j);
+				if (div.html() == '*')
+					continue;
+				counter = 0;
+				for (k = -1; k < 2; k++) {
+					for (l = -1; l < 2; l++) {
+						if ($("#" + parseInt(i+k) + "\\." + parseInt(j+l)).html() == '*')
+							counter += 1;
+					}
+				}
+				if (counter > 0)
+					div.html(counter);
+			}
+		}
+		
+		$("div[name='cell']").mousedown(function(event) {
+		switch (event.which) {
+			case 1:
+				if ($(this).hasClass('marked'))
+				{
+					return false;
+				}
+				if ($(this).html() == '*') {
+					$("div[name='cell']").addClass('fired');
+					alert('Game Over!');
+					return;
+				}
+				var s, t;
+				s = parseInt($(this).attr('id').split('.')[0]);
+				t = parseInt($(this).attr('id').split('.')[1]);
+				open_box(s, t, $("#width").val(), $("#height").val(), 0);
+				check();
+				break;
+			case 3:
+				if ($(this).hasClass('marked')) {
+					$(this).removeClass('marked')
+					
+				} else
+				{
+					$(this).addClass('marked')
+				}
+				
+				break;
+			default:
+				alert('You have a strange Mouse!');
+			}
+		});	
+		
+	});
+	
+
+});
+</script>
+
+</head>
+
+<body>
+<form id="main">
+Width: <input type="number" id="width" min="10" max="25">
+Height: <input type="number" id="height" min="10" max="25">
+Mines: <input type="number" id="mines" min="1" max="5000">
+<input type="submit" id="form_submit" value="Create">
+</form>
+
+<div id="field"></div>
+
+</body>
+</html>
