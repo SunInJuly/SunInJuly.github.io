@@ -146,6 +146,13 @@ $(window).load(function() {
 });
 </script>
 
+<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
+<script type="text/javascript">
+  VK.init({
+    apiId:  5179533 
+  });
+</script>
+
 </head>
 
 <body>
@@ -174,6 +181,11 @@ Mines: <input type="number" id="mines" min="1" max="5000">
 
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <div class="addthis_sharing_toolbox"></div>
+
+<div id="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "button"});
+</script>
 
 </body>
 </html>
