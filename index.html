@@ -1,193 +1,49 @@
+<!DOCTYPE html>
+
+ 
 <html>
-<head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <head>
+    <title>Registration</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  </head>
 
-<style type = "text/css">
-.closed {background-color: #00BFFF; 
-		 color: #00BFFF; 
-		 float: left; 
-		 border: 2px solid #ffffff;
-		 text-align: center;
-		-webkit-user-select: none;
-		}
-.opened {background-color: #FFFFFF; 
-		 color: #00BFFF; 
-		 float: left; 
-		 border: 2px solid #ffffff;
-		 text-align: center;
-		-webkit-user-select: none;
-		}
-.fired {background-color: #FF0000; 
-		 color: #00BFFF; 
-		 float: left; 
-		 border: 2px solid #ffffff;
-		 text-align: center;
-		-webkit-user-select: none;
-		}
-.marked {background-color: #550000; 
-		 color: #550000; 
-		 float: left; 
-		 border: 2px solid #ffffff;
-		 text-align: center;
-		-webkit-user-select: none;
-		}
-</style>
+  <body class = "bg-light">
 
-<script>
-var width, height;
-var win;
+<div class = "container" style="padding-top: 90px;">
 
-function open_box(i, j, max_w, max_h, direction) {
-	if (i < 0 || j < 0 || i >= max_w || j >= max_h)
-		return;
-	div = $("#" + i + "\\." + j);
-	if (div.html() == '*' || div.hasClass('opened')) 
-		return;
-	div.removeClass('closed');
-	div.removeClass('marked');
-	div.addClass('opened');
-	if (direction != 3)
-		open_box(i, j - 1, max_w, max_h, 1);
-	if (direction != 4)
-		open_box(i - 1, j, max_w, max_h, 2);
-	if (direction != 1)
-		open_box(i, j + 1, max_w, max_h, 3);
-	if (direction != 2)
-		open_box(i + 1, j, max_w, max_h, 4);
-}
+    <h1>Registration</h1>
+    <p>Please submit some information about you below:</p>
+	<form action="/action_page.php">
+<div class = "first_block">
+  First name:<br>
+  <input type="text" name="firstname" class = "first">
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" class = "second">
+ <br>
+  E-mail:<br>
+  <input type="text" name="e-mail" class = "third">
+  <br>
+  <br><br>
 
-function check() {
-	win = 1;
-	$("div[name='cell']").each(function(index) {
-		if ($(this).hasClass('closed') && $(this).html() != '*') {
-			win = 0;
-			return false;
-		}
-	});
-	if (win == 1)
-		alert('You win!');
-}
+</div>
 
-$(window).load(function() {
-	$(document).on("contextmenu",function(e){
-		e.preventDefault();
-	});
-	$("#form_submit").click(function(e) {
-		var i, j, k, l;
-		e.preventDefault();
-		$("div[name='cell']").remove();
-		width = parseInt(600 / $("#width").val());
-		height = parseInt(400 / $("#height").val());
-		for (j = 0; j < $("#height").val(); j++) {
-			for (i = 0; i < $("#width").val(); i++) {
-				prob = parseFloat($("#mines").val()) / ($("#width").val() * $("#height").val());
-				if (Math.random() < prob) 
-					mine = '*';
-				else
-					mine = '';
-				box = $("#field").append('<div name="cell" id="' + i + '.' + j + '" style="width: ' + width + 
-					'px; height: ' + height + 'px; line-height: ' + height + 'px;" class="closed">' + mine + '</div>');
-			}
-			$("#field").append('<div style="clear: both;"></div>');
-		}
-		for (j = 0; j < $("#height").val(); j++) {
-			for (i = 0; i < $("#width").val(); i++) {
-				div = $("#" + i + "\\." + j);
-				if (div.html() == '*')
-					continue;
-				counter = 0;
-				for (k = -1; k < 2; k++) {
-					for (l = -1; l < 2; l++) {
-						if ($("#" + parseInt(i+k) + "\\." + parseInt(j+l)).html() == '*')
-							counter += 1;
-					}
-				}
-				if (counter > 0)
-					div.html(counter);
-			}
-		}
-		
-		$("div[name='cell']").mousedown(function(event) {
-		switch (event.which) {
-			case 1:
-				if ($(this).hasClass('marked'))
-				{
-					return false;
-				}
-				if ($(this).html() == '*') {
-					$("div[name='cell']").addClass('fired');
-					alert('Game Over!');
-					return;
-				}
-				var s, t;
-				s = parseInt($(this).attr('id').split('.')[0]);
-				t = parseInt($(this).attr('id').split('.')[1]);
-				open_box(s, t, $("#width").val(), $("#height").val(), 0);
-				check();
-				break;
-			case 3:
-				if ($(this).hasClass('marked')) {
-					$(this).removeClass('marked')
-					
-				} else
-				{
-					$(this).addClass('marked')
-				}
-				
-				break;
-			default:
-				alert('You have a strange Mouse!');
-			}
-		});	
-		
-	});
-	
-
-});
-</script>
-
-<script src="//vk.com/js/api/openapi.js" type="text/javascript"></script>
-<script type="text/javascript">
-  VK.init({
-    apiId:  5179533 
-  });
-</script>
-
-</head>
-
-<body>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5666089720c032ea" async="async"></script>
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<div class = "second_block">
+	  Phone number:<br>
+  <input type="text" name="phone number" class = "first">
+  <br>
+  Bio details:<br>
+  <input type="text" name="bio" class = "second">
+  <br><br>
+</div>
+  <input type="submit" value="Submit">
+</div>
+</form>     
 
 
-<form id="main">
-Width: <input type="number" id="width" min="10" max="25">
-Height: <input type="number" id="height" min="10" max="25">
-Mines: <input type="number" id="mines" min="1" max="5000">
-<input type="submit" id="form_submit" value="Create">
-</form>
-
-<div id="field"></div>
-
-<div id="vk_like"></div>
-<script type="text/javascript">
-VK.Widgets.Like("vk_like", {type: "button"});</script>
-
-<div class="fb-like" data-href="http://suninjuly.github.io/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<div class="addthis_sharing_toolbox"></div>
-
-
-
-
-</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
 </html>
+
