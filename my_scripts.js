@@ -13,3 +13,8 @@ function GetURLParameter(sParam)
 
 }
 
+function GetResult()
+{	
+
+	return 0;
+}

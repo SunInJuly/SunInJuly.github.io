@@ -3,7 +3,7 @@
  
 <html>
   <head>
-    <title>Registration</title>
+    <title>Welcome page</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
  
 
@@ -12,36 +12,36 @@
   <body class = "bg-light">
 
 <div class = "container" style="padding-top: 90px;">
+<h1>Welcome to our course! Please select your test page below:</h1>
 
-    <h1>Registration</h1>
-    <p>Please submit some information about you below:</p>
-	<form action="welcome.html" method="get">
-<div class = "first_block">
-  First name:<br>
-  <input type="text" name="firstname" class = "first" required>
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname" class = "second" required>
- <br>
-  E-mail:<br>
-  <input type="text" name="e-mail" class = "third">
-  <br>
-  <br><br>
+<ul class="nav nav-tabs" style="padding-top: 50px;">
+<div data-example-id="single-button-dropdown" class="bs-example">
+<div class="btn-group">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Registration task
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="registration1.html" target="_blank">Registration1</a></li>
+    <li><a href="registration2.html" target="_blank">Registration2</a></li>
+    <li><a href="registration3.html" target="_blank">Registration3</a></li>
 
+  </ul>
+</div>
+<div class="btn-group">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Huge form
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="huge_form1.html" target="_blank">Huge form 1</a></li>
+    <li role="separator" class="divider"></li>
+
+  </ul>
 </div>
 
-<div class = "second_block">
-	  Phone number:<br>
-  <input type="text" name="phone number" class = "first" onclick = "submit_by_name()">
-  <br>
-  Bio details:<br>
-  <input type="text" name="bio" class = "second">
-  <br><br>
 </div>
-  <input class = "btn btn-primary btn-lg" type="submit" value="Submit">
 </div>
-</form>     
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
