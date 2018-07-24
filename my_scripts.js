@@ -17,5 +17,5 @@ function GetResult()
 {	
 
 	var now = new Date();
-	return Math.log(now.getHours());
+	return Math.log(now.getUTCHours());
 }
