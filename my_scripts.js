@@ -16,5 +16,6 @@ function GetURLParameter(sParam)
 function GetResult()
 {	
 
-	return 0;
+	var now = new Date();
+	return Math.log(now.getHours());
 }
