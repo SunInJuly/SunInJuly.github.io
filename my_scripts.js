@@ -13,9 +13,20 @@ function GetURLParameter(sParam)
 
 }
 
-function GetResult()
-{	
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 
-	var now = new Date();
-	return Math.log(now.getUTCHours());
+
+function GetResult()
+{		
+	var data = JSON.parse(httpGet('http://worldclockapi.com/api/json/utc/now'));
+	var now = new Date(data.currentDateTime);
+	console.log(now.getHours());
+	return Math.log(now.getHours());
+	
 }
