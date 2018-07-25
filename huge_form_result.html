@@ -24,6 +24,7 @@
 
 if (GetURLParameter("control") != '' && GetURLParameter("firstname") != '' && GetURLParameter("lastname") != '') {
 	document.getElementById("result").innerHTML = GetResult();
+	window.location.replace('http://suninjuly.github.io/huge_form_result')
 } else {
 	document.getElementById("congrats").innerHTML = "Не получилось :(";
 	document.getElementById("copy").style.visibility='hidden' ;
