@@ -10,7 +10,7 @@ function GetURLParameter(sParam)
             return sParameterName[1];
         }
     }
-
+	return '';
 }
 
 function httpGet(theUrl)

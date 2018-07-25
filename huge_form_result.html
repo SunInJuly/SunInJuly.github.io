@@ -7,15 +7,28 @@
 <meta charset="utf-8">
 <body class = "bg-light">
 <div class = "container" style="padding-top: 90px;">
- <h1>Поздравляем!</h1>
+ <h1 id = "congrats">Поздравляем!</h1>
 <h2> Ваш результат:
-<b id="result"></b>
-<p> </p>
+<b id="result"> Не получен, кажется что-то пошло не так. Вернитесь назад и повторите попытку</b>
+<p>
+
+
+
+ </p>
+<div id = "copy">
 <p> Скопируйте это число в поле ответа в задаче на Stepik </p>
+</div>
  </h2>
 <div>
 <script>
-document.getElementById("result").innerHTML = GetResult();
+
+if (GetURLParameter("control") != '' && GetURLParameter("firstname") != '' && GetURLParameter("lastname") != '') != '') {
+	document.getElementById("result").innerHTML = GetResult();
+} else {
+	document.getElementById("congrats").innerHTML = "Не получилось :(";
+	document.getElementById("copy").style.visibility='hidden' ;
+}
+
 
 </script> 
 </body>
