@@ -18,13 +18,13 @@
 	<form action="registration_result.html" method="get">
 <div class = "first_block">
   First name:<br>
-  <input type="text" name="firstname" class = "first" required>
+  <input type="text" name="firstname" class = "first" required maxlength="32">
   <br>
   Last name:<br>
-  <input type="text" name="lastname" class = "second" required>
+  <input type="text" name="lastname" class = "second" required maxlength="32">
  <br>
   E-mail:<br>
-  <input type="text" name="e-mail" class = "third">
+  <input type="text" name="e-mail" class = "third" maxlength="32">
   <br>
   <br><br>
 
@@ -32,10 +32,10 @@
 
 <div class = "second_block">
 	  Phone number:<br>
-  <input type="text" name="phone number" class = "first" onclick = "submit_by_name()">
+  <input type="text" name="phone number" class = "first" onclick = "submit_by_name()" maxlength="32">
   <br>
   Bio details:<br>
-  <input type="text" name="bio" class = "second">
+  <input type="text" name="bio" class = "second" maxlength="32">
   <br><br>
 </div>
   <input class = "btn btn-primary btn-lg" type="submit" value="Submit">
