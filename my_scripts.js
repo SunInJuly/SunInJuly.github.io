@@ -26,7 +26,7 @@ function httpGet(theUrl)
 }
 
 
-function getHashcode()
+function getHashcode(problem_number)
 {
 	
 try {
@@ -41,7 +41,7 @@ try {
 		var now = new Date();
 		console.log ("Using local time: ", now.getUTCHours())
 	}
-	return Math.log(now.getUTCHours());
+    return Math.log(now.getUTCHours() * problem_number);
 
 	
 }
@@ -64,7 +64,7 @@ function CountDown(interval) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("countdown").innerHTML = seconds + "s ";
+        document.getElementById("countdown").innerHTML = seconds + " секунд";
 
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -79,13 +79,13 @@ function CountDown(interval) {
 }
 
 function checkResult(input_value) {
-    var result = document.getElementById("input_value").textContent;
+    var result = parseFloat(document.getElementById("answer").value);
     if (result == Math.log(Math.sin(12 * input_value))) {
-        var hashcode = getHashcode();
-        alert(hashcode);
+        var hashcode = getHashcode(2);
+        alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
     }
     else {
-        alert("НЕВЕРНЫЙ ОТВЕТ");
+        alert("Неверный ответ!");
 
     }
 }
