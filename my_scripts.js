@@ -79,13 +79,18 @@ function CountDown(interval) {
 }
 
 function checkResult(input_value) {
-    var result = parseFloat(document.getElementById("answer").value);
-    if (result == Math.log(Math.sin(12 * input_value))) {
-        var hashcode = getHashcode(2);
-        alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
+    if (document.getElementById("robotsRules").checked) {
+        var result = parseFloat(document.getElementById("answer").value);
+        if (result == Math.log(Math.sin(12 * input_value))) {
+            var hashcode = getHashcode(2);
+            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
+        }
+        else {
+            alert("Неверный ответ!");
+
+        }
     }
     else {
-        alert("Неверный ответ!");
-
+        alert("Роботы должны рулить!");
     }
 }

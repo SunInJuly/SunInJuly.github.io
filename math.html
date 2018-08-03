@@ -17,23 +17,38 @@
 
 <div class="container" style="padding-top: 90px;">
 
-    <div>
-        <h2><span class="nowrap"> Чему равно ln(sin(12x)), где x =  </span>
-            <span class="nowrap" id="input_value">  10 </span></h2>
-
-    </div>
     <form action="#" onsubmit="checkResult(input_value)">
-        <input id="answer" type="text" required>
+        <div class="form-group">
+            <div>
+                <div>
+                    <h2>
+                        <span class="nowrap"> Чему равно ln(sin(12x)), где x =  </span>
+                        <span class="nowrap" id="input_value">  10 </span>
+                    </h2>
+                </div>
+
+                <input id="answer" type="text" required> <br>
+                <div style="margin: 10px 0px 0px 0px;">
+                    <input class="check-input" type="checkbox" id="robotCheckbox" required> Подтверждаю, что являюсь
+                    роботом <br>
+
+                    <br>
+                    <input class="check-input" type="radio" name="radio" checked> Люди рулят<br>
+                    <input class="check-input" type="radio" name="radio" id="robotsRules"> Роботы рулят <br>
+                </div>
+                <br>
         <input id="btn" class="btn btn-primary btn-lg" type="submit" value="Отправить">
+            </div>
+        </div>
+
     </form>
 </div>
-
 </body>
 
 
 <script>
     console.log(window.navigator.webdriver);
-    var input_value = Math.floor(Math.random() * 100) + 1;
+    var input_value = Math.floor(Math.random() * 1000) + 1;
 
     document.getElementById("input_value").innerHTML = input_value;
     CountDown(10);
