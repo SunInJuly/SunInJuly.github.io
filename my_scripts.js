@@ -45,3 +45,35 @@ try {
 
 	
 }
+
+function CountDown(interval) {
+
+    var countDownTime = new Date();
+    countDownTime = new Date(countDownTime.getTime() + 1000 * interval);
+    console.log(countDownTime);
+
+// Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get todays date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownTime - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("countdown").innerHTML = seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "не осталось времени :(";
+            document.getElementById("btn").disabled = true;
+
+        }
+    }, 100);
+
+}
