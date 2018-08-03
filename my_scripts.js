@@ -26,7 +26,7 @@ function httpGet(theUrl)
 }
 
 
-function GetResult()
+function getHashcode()
 {
 	
 try {
@@ -50,7 +50,6 @@ function CountDown(interval) {
 
     var countDownTime = new Date();
     countDownTime = new Date(countDownTime.getTime() + 1000 * interval);
-    console.log(countDownTime);
 
 // Update the count down every 1 second
     var x = setInterval(function () {
@@ -70,10 +69,23 @@ function CountDown(interval) {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            document.getElementById("countdown").innerHTML = "не осталось времени :(";
+            document.getElementById("countdown").innerHTML = " не осталось времени :(";
+            document.getElementById("timeLeft").innerHTML = "Упс, ";
             document.getElementById("btn").disabled = true;
 
         }
     }, 100);
 
+}
+
+function checkResult(input_value) {
+    var result = document.getElementById("input_value").textContent;
+    if (result == Math.log(Math.sin(12 * input_value))) {
+        var hashcode = getHashcode();
+        alert(hashcode);
+    }
+    else {
+        alert("НЕВЕРНЫЙ ОТВЕТ");
+
+    }
 }

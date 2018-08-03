@@ -9,7 +9,7 @@
 
 <body class="bg-light">
 <h3 class="timer">
-    <span class="nowrap">Осталось времени:</span>
+    <span class="nowrap" id="timeLeft">Осталось времени:</span>
     <span class="nowrap" id="countdown">
 </span>
 
@@ -22,16 +22,21 @@
             <span class="nowrap" id="input_value">  10 </span></h2>
 
     </div>
-    <input type="text" required>
+    <form action="#" onsubmit="checkResult(input_value)">
+        <input id="answer" type="text" required>
     <input id="btn" class="btn btn-primary btn-lg" type="submit" value="Submit">
+    </form>
 </div>
 
 </body>
 
 
 <script>
+    var input_value = Math.floor(Math.random() * 100) + 1;
 
-    var isFinished = CountDown(20);
+    document.getElementById("input_value").innerHTML = input_value;
+    CountDown(20);
+
 
 </script>
 </html>
