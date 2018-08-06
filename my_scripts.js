@@ -87,9 +87,7 @@ function checkResult(input_value) {
         }
         else {
             alert("Неверный ответ!");
-	    console.log(Math.log(Math.sin(12 * input_value)));
-
-        }
+	}
     }
     else {
         alert("Роботы должны рулить!");
