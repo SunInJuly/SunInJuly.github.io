@@ -85,7 +85,7 @@ function checkResult(input_value) {
     if (document.getElementById("robotsRules").checked) {
         var result = parseFloat(document.getElementById("answer").value);
         if (result == Math.log(Math.abs(Math.sin(12 * input_value)))) {
-            if (window.isFinished) {
+            if (!window.isFinished) {
                 var hashcode = getHashcode(2);
                 alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
             }
