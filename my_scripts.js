@@ -95,8 +95,7 @@ function checkResult(input_value) {
         }
         else {
             alert("Неверный ответ!");
-
-        }
+	}
     }
     else {
         alert("Роботы должны рулить!");
