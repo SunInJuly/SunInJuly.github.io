@@ -46,6 +46,7 @@ try {
 	
 }
 
+
 function CountDown(interval) {
 
     var countDownTime = new Date();
@@ -72,9 +73,11 @@ function CountDown(interval) {
             document.getElementById("countdown").innerHTML = " не осталось времени :(";
             document.getElementById("timeLeft").innerHTML = "Упс, ";
             document.getElementById("btn").disabled = true;
+            window.isFinished = true;
 
         }
     }, 100);
+
 
 }
 
@@ -82,8 +85,13 @@ function checkResult(input_value) {
     if (document.getElementById("robotsRules").checked) {
         var result = parseFloat(document.getElementById("answer").value);
         if (result == Math.log(Math.sin(12 * input_value))) {
-            var hashcode = getHashcode(2);
-            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
+            if (window.isFinished) {
+                var hashcode = getHashcode(2);
+                alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
+            }
+            else {
+                alert("Время вышло!");
+            }
         }
         else {
             alert("Неверный ответ!");
