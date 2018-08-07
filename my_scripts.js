@@ -33,15 +33,15 @@ try {
 		var raw = httpGet('http://worldclockapi.com/api/json/utc/now');
 		var data = JSON.parse(raw);
 		var now = new Date(data.currentDateTime);
-		console.log ("Using server time: ", now.getUTCHours())
+    console.log("Using server time: ", Math.round(now.getTime() / 1000))
 
 	}
 	catch (e)
 {	
 		var now = new Date();
-		console.log ("Using local time: ", now.getUTCHours())
-	}
-    return Math.log(now.getUTCHours() * problem_number);
+    console.log("Using local time: ", Math.round(now.getTime() / 1000))
+}
+    return Math.log(Math.round(now.getTime() / 1000) * problem_number);
 
 	
 }
