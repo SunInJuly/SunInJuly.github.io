@@ -11,7 +11,12 @@
   <body class = "bg-light">
 
 <div class = "container" style="padding-top: 90px;">
+    <h3 class="timer" style="visibility: hidden;">
+        <span class="nowrap" id="timeLeft">Осталось времени:</span>
+        <span class="nowrap" id="countdown">
+</span>
 
+    </h3>
     <h1>Привет</h1>
     <p>Ниже самая длинная форма регистрации на свете. В ней 100 полей, и все обязательные. </p>
     <p>Ваша задача: заполнить все текстовые поля любыми данными и нажать Submit. </p>
@@ -337,8 +342,13 @@ Text field:<br>
 </form>
 <script>
 function showResult() {
-    var res = getHashcode(1);
-alert(res);
+    var res = "";
+    if (isFinished) {
+        res = "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками";
+    }
+    else
+        res = getHashcode(1);
+    alert(res);
 }
  </script>
 
@@ -346,5 +356,14 @@ alert(res);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   </body>
+
+
+    <script>
+
+        var isFinished = false;
+        CountDown(10);
+
+
+    </script>
 </html>
 
