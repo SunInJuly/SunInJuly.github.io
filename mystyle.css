@@ -12,3 +12,8 @@
     padding-top: 30px;
     margin: 10px 0px 0px 0px;
 }
+
+.invisible_numbers {
+
+    visibility: hidden;
+}
