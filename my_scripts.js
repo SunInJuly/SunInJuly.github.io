@@ -93,7 +93,7 @@ function checkResult(input_value) {
         } else {
             alert("Время вышло!");
         }
-	}
+    }
     else {
         alert("Роботы должны рулить!");
     }
