@@ -20,12 +20,12 @@
 
 <div class="container" style="padding-top: 90px;">
 
-    <form action="#" onsubmit="checkResult(input_value)">
+    <form action="#" onsubmit="checkTask2(input_value)">
         <div class="form-group">
             <div>
                 <div>
                     <h2>
-                        <span class="nowrap"> Чему равно ln(abs(sin(12x))), где x =  </span>
+                        <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
                         <span class="nowrap" id="input_value">  10 </span>
                     </h2>
                 </div>
@@ -46,12 +46,11 @@
 
     </form>
 </div>
-<script>
-    console.log(window.navigator.webdriver);
+  <script>
     var input_value = Math.floor(Math.random() * 1000) + 1;
     var isFinished = false;
     document.getElementById("input_value").innerHTML = input_value;
-    CountDown(10);
-</script>
+    CountDown(100);
+  </script>
 </body>
 </html>
