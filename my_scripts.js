@@ -69,15 +69,32 @@ function CountDown(interval) {
 
         // If the count down is finished, write some text
         if (distance < 0) {
-            window.isFinished = true;
+
             clearInterval(x);
             document.getElementById("countdown").innerHTML = " не осталось времени :(";
             document.getElementById("timeLeft").innerHTML = "Упс, ";
-            document.getElementById("btn").disabled = true;
-
-
+            window.isFinished = true;
+            $("button").attr("disabled", true);
         }
     }, 100);
 
+}
 
+function checkResult(input_value) {
+    if (document.getElementById("robotsRules").checked) {
+        var result = parseFloat(document.getElementById("answer").value);
+        if (!window.isFinished) {
+            if (result == Math.log(Math.abs(Math.sin(12 * input_value)))) {
+                var hashcode = getHashcode(2);
+                alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
+            } else {
+                alert("Неверный ответ!");
+            }
+        } else {
+            alert("Время вышло!");
+        }
+	}
+    else {
+        alert("Роботы должны рулить!");
+    }
 }
