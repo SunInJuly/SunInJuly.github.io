@@ -48,6 +48,8 @@
 </div>
 </body>
 <script>
+    var input_value = Math.floor(Math.random() * 1000) + 1;
+    document.getElementById("input_value").innerHTML = input_value;
 
     var invisible_number = Math.floor(Math.random() * 100);
     document.getElementById("invisible").innerHTML = invisible_number;
@@ -69,7 +71,7 @@
         select = document.getElementById('dropdown')
         var value = select.options[select.selectedIndex].value;
         if (invisible_number == value) {
-            checkAnswer(10, 4);
+            checkAnswer(input_value, 4);
         }
         else {
             alert("В списке выбран неправильный номер, попробуйте еще раз")

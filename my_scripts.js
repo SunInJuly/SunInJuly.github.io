@@ -86,7 +86,7 @@ function checkAnswer(input_value, task_number) {
         var result = parseFloat(document.getElementById("answer").value);
         if (result == Math.log(Math.abs(12 * Math.sin(input_value)))) {
             var hashcode = getHashcode(task_number);
-            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+            alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
             alert("Неверный ответ!");
         }
