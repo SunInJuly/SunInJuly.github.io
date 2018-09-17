@@ -98,7 +98,7 @@ function checkAnswer(input_value, task_number) {
 // show result for math task
 function checkTask2(input_value) {
     var task = 2;
-    if (document.getElementById("robotsRules").checked) {
+    if (document.getElementById("robotsRule").checked) {
         checkAnswer(input_value, task);
     } else {
         alert("Роботы должны рулить!");
