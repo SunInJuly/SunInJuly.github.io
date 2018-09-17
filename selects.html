@@ -25,7 +25,7 @@
         <div id="myList"></div>
     </div>
 
-    <form action="#" onsubmit="checkResult()">
+    <form action="#" onsubmit="showResult(3)">
         <select id="dropdown" class="custom-select">
             <option selected>Open this select menu</option>
             <option value="1">One</option>
@@ -58,18 +58,5 @@
 
     var isFinished = false;
     CountDown(5);
-
-
-    function checkResult() {
-        if (!window.isFinished) {
-            var hashcode = getHashcode(3);
-            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
-        }
-        else {
-            alert("Время вышло!");
-        }
-
-    }
-
 </script>
 </html>

@@ -21,52 +21,41 @@
 
 <body class="bg-light">
 
-<h3 class="timer">
-    <span class="nowrap" id="timeLeft">Осталось времени:</span>
-    <span class="nowrap" id="countdown"></span>
+  <h3 class="timer">
+      <span class="nowrap" id="timeLeft">Осталось времени:</span>
+      <span class="nowrap" id="countdown"></span>
 
-</h3>
+  </h3>
 
-<div class="container" style="padding-top: 90px;">
+  <div class="container" style="padding-top: 90px;">
 
     <h1>Привет</h1>
     <p>Заполните поля этой формы с помощью методов find и разных локаторов. </p>
     <p>После заполнения формы нажмите кнопку Submit, чтобы увидеть проверочный код. </p>
-    <form action="#" method="get" onsubmit="showResult()">
-        <div class="form-group">
-            <label>First name:</label>
-            <input type="text" name="first_name" class="form-control" required maxlength="32">
-        </div>
-        <div class="form-group">
-            <label>Last name:</label>
-            <input type="text" name="last_name" class="form-control" required maxlength="32">
-        </div>
-        <div class="form-group">
-            <label>City:</label>
-            <input type="text" name="firstname" class="form-control city" required maxlength="32">
-        </div>
-        <div class="form-group">
-            <label>Country:</label>
-            <input type="text" name="firstname" class="form-control" id="country" required maxlength="32">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+
+    <form action="#" method="get" onsubmit="showResult(3)">
+      <div class = "form-group">
+        <label>First name:</label>
+        <input type="text" name="first_name" class = "form-control" required maxlength="32">
+      </div>
+      <div class = "form-group">
+        <label>Last name:</label>
+        <input type="text" name="last_name" class = "form-control" required maxlength="32">
+      </div>
+      <div class = "form-group">
+        <label>City:</label>
+        <input type="text" name="firstname" class = "form-control city" required maxlength="32">
+      </div>
+      <div class = "form-group">
+        <label>Country:</label>
+        <input type="text" name="firstname" class = "form-control" id="country" required maxlength="32">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-    <script type="text/javascript">
-        var isFinished = false;
-        CountDown(3);
-    </script>
-    <script>
-        function showResult() {
-            var task = 3;
-            if (!window.isFinished) {
-                var hashcode = getHashcode(task);
-                alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
-            }
-            else {
-                alert("Время вышло!");
-            }
-        }
-    </script>
+  <script type="text/javascript">
+    var isFinished = false;
+    CountDown(3);
+  </script>
 </body>
 </html>
 

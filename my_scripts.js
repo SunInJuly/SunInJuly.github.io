@@ -80,21 +80,40 @@ function CountDown(interval) {
 
 }
 
-function checkResult(input_value) {
-    if (document.getElementById("robotsRules").checked) {
+// check answer for math task
+function checkAnswer(input_value, task) {
+    if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
-        if (!window.isFinished) {
-            if (result == Math.log(Math.abs(Math.sin(12 * input_value)))) {
-                var hashcode = getHashcode(2);
-                alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
-            } else {
-                alert("Неверный ответ!");
-            }
+        if (result == Math.log(Math.abs(12 * Math.sin(input_value)))) {
+            var hashcode = getHashcode(task);
+            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
-            alert("Время вышло!");
+            alert("Неверный ответ!");
         }
+    } else {
+        alert("Время вышло!");
+    }
+}
+
+// show result for math task
+function checkTask2(input_value) {
+    var task = 2;
+    if (document.getElementById("robotsRules").checked) {
+        checkAnswer(input_value, task);
+    } else {
+        alert("Роботы должны рулить!");
+    }
+}
+
+// show result when timer done
+function showResult(task) {
+    var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"]
+    var randomWarning = warnings[Math.floor(Math.random()*warnings.length)]
+    if (!window.isFinished) {
+        var hashcode = getHashcode(task);
+        alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
     }
     else {
-        alert("Роботы должны рулить!");
+        alert(randomWarning);
     }
 }
