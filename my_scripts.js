@@ -69,35 +69,51 @@ function CountDown(interval) {
 
         // If the count down is finished, write some text
         if (distance < 0) {
+
             clearInterval(x);
             document.getElementById("countdown").innerHTML = " не осталось времени :(";
             document.getElementById("timeLeft").innerHTML = "Упс, ";
-            document.getElementById("btn").disabled = true;
             window.isFinished = true;
-
+            $("button").attr("disabled", true);
         }
     }, 100);
 
-
 }
 
-function checkResult(input_value) {
-    if (document.getElementById("robotsRules").checked) {
+// check answer for math task
+function checkAnswer(input_value, task) {
+    if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
-        if (result == Math.log(Math.abs(Math.sin(12 * input_value)))) {
-            if (!window.isFinished) {
-                var hashcode = getHashcode(2);
-                alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: \n" + hashcode);
-            }
-            else {
-                alert("Время вышло!");
-            }
-        }
-        else {
+        if (result == Math.log(Math.abs(12 * Math.sin(input_value)))) {
+            var hashcode = getHashcode(task);
+            alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+        } else {
             alert("Неверный ответ!");
-	}
+        }
+    } else {
+        alert("Время вышло!");
+    }
+}
+
+// show result for math task
+function checkTask2(input_value) {
+    var task = 2;
+    if (document.getElementById("robotsRules").checked) {
+        checkAnswer(input_value, task);
+    } else {
+        alert("Роботы должны рулить!");
+    }
+}
+
+// show result when timer done
+function showResult(task) {
+    var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"]
+    var randomWarning = warnings[Math.floor(Math.random()*warnings.length)]
+    if (!window.isFinished) {
+        var hashcode = getHashcode(task);
+        alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
     }
     else {
-        alert("Роботы должны рулить!");
+        alert(randomWarning);
     }
 }
