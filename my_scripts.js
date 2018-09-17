@@ -81,11 +81,11 @@ function CountDown(interval) {
 }
 
 // check answer for math task
-function checkAnswer(input_value, task) {
+function checkAnswer(input_value, task_number) {
     if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
         if (result == Math.log(Math.abs(12 * Math.sin(input_value)))) {
-            var hashcode = getHashcode(task);
+            var hashcode = getHashcode(task_number);
             alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
             alert("Неверный ответ!");
@@ -116,4 +116,12 @@ function showResult(task) {
     else {
         alert(randomWarning);
     }
+}
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }

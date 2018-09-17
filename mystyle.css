@@ -13,7 +13,11 @@
     margin: 10px 0px 0px 0px;
 }
 
+.block {
+
+    margin: 10px 0px 0px 10px;
+}
 .invisible_numbers {
 
-    visibility: hidden;
+    color: #f8f9fa;
 }

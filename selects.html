@@ -21,16 +21,26 @@
 
 <div class="container" style="padding-top: 90px;">
 
-    <div class="invisible_numbers">
-        <div id="myList"></div>
-    </div>
+    <span class="invisible_numbers" id="invisible">
 
-    <form action="#" onsubmit="showResult(3)">
+    </span>
+
+    <form action="#" onsubmit="checkSelectTask()">
+        <div style="padding-bottom: 15px;">
+            <h2>
+                <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
+                <span class="nowrap" id="input_value">  10 </span>
+            </h2>
+
+            <input id="answer" type="text" required> <br>
+
+        </div>
+        <div style="padding-bottom: 10px; padding-top: 10px;">
         <select id="dropdown" class="custom-select">
             <option selected>Open this select menu</option>
-            <option value="1">One</option>
-        </select>
 
+        </select>
+        </div>
         <br>
         <button type="submit" class="btn btn-default">Отправить</button>
 
@@ -38,25 +48,33 @@
 </div>
 </body>
 <script>
-    var numbers = [...Array(20).keys()];
-    var rand_numbers = [1, 2, 3, 4, 5];
-    var ul = document.createElement('ul');
-    var select = document.getElementById('dropdown')
-    document.getElementById('myList').appendChild(ul);
 
-    rand_numbers.forEach(function (name) {
-        var li = document.createElement('li');
-        ul.appendChild(li);
-        li.innerHTML += name;
-    });
+    var invisible_number = Math.floor(Math.random() * 100);
+    document.getElementById("invisible").innerHTML = invisible_number;
 
-    numbers.forEach(function (num) {
+    var numbers_to_dropdown = [...Array(100).keys()];
+    numbers_to_dropdown = shuffle(numbers_to_dropdown);
+    var select = document.getElementById('dropdown');
+    numbers_to_dropdown.forEach(function (num) {
         var option = document.createElement('option');
         option.value = option.innerHTML = num;
         select.appendChild(option);
     });
 
+
     var isFinished = false;
-    CountDown(5);
+    CountDown(4);
+
+    function checkSelectTask() {
+        select = document.getElementById('dropdown')
+        var value = select.options[select.selectedIndex].value;
+        if (invisible_number == value) {
+            checkAnswer(10, 3);
+        }
+        else {
+            alert("В списке выбран неправильный номер, попробуйте еще раз")
+        }
+
+    }
 </script>
 </html>
