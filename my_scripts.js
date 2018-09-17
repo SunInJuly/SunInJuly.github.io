@@ -105,6 +105,17 @@ function checkTask2(input_value) {
     }
 }
 
+function checkSelectTask() {
+    select = document.getElementById('dropdown')
+    var value = select.options[select.selectedIndex].value;
+    if (invisible_number == value) {
+        checkAnswer(input_value, 4);
+    }
+    else {
+        alert("В списке выбран неправильный номер, попробуйте еще раз")
+    }
+}
+
 // show result when timer done
 function showResult(task) {
     var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"]
