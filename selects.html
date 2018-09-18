@@ -25,14 +25,14 @@
 
     </span>
 
-    <form action="#" onsubmit="checkSelectTask()">
+    <form action="" onsubmit="checkSelectTask()">
         <div style="padding-bottom: 15px;">
             <h2>
                 <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
                 <span class="nowrap" id="input_value">  10 </span>
             </h2>
 
-            <input id="answer" type="text" required> <br>
+            <input name="text" id="answer" type="text" required> <br>
 
         </div>
         <div style="padding-bottom: 10px; padding-top: 10px;">
@@ -66,17 +66,5 @@
 
     var isFinished = false;
     CountDown(4);
-
-    function checkSelectTask() {
-        select = document.getElementById('dropdown')
-        var value = select.options[select.selectedIndex].value;
-        if (invisible_number == value) {
-            checkAnswer(input_value, 4);
-        }
-        else {
-            alert("В списке выбран неправильный номер, попробуйте еще раз")
-        }
-
-    }
 </script>
 </html>
