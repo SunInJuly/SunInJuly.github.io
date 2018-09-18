@@ -84,7 +84,7 @@ function CountDown(interval) {
 function checkAnswer(input_value, task_number) {
     if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
-        if (result == Math.log(Math.abs(12 * Math.sin(input_value)))) {
+        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-13) {
             var hashcode = getHashcode(task_number);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
