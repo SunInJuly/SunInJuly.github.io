@@ -24,25 +24,19 @@
 
 <div class="container" style="padding-top: 90px;">
 
-    <span class="invisible_numbers" id="invisible">
+    <form action="" onsubmit="checkSelectTask(number1, number2)">
+        <h2>
+            <span class="nowrap"> Найдите сумму чисел: </span>
+            <span class="nowrap" id="num1">  1 </span>  
+            <span class="nowrap" > и </span>                        
+            <span class="nowrap" id="num2">  1 </span>
+        </h2>
 
-    </span>
+        <div style="padding-bottom: 10px;">
+            <select id="dropdown" class="custom-select">
+                <option selected>Выберите правильный ответ</option>
 
-    <form action="" onsubmit="checkSelectTask()">
-        <div style="padding-bottom: 15px;">
-            <h2>
-                <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
-                <span class="nowrap" id="input_value">  10 </span>
-            </h2>
-
-            <input name="text" id="answer" type="text" required> <br>
-
-        </div>
-        <div style="padding-bottom: 10px; padding-top: 10px;">
-        <select id="dropdown" class="custom-select">
-            <option selected>Open this select menu</option>
-
-        </select>
+            </select>
         </div>
         <br>
         <button type="submit" class="btn btn-default">Отправить</button>
@@ -51,11 +45,10 @@
 </div>
 </body>
 <script>
-    var input_value = Math.floor(Math.random() * 1000) + 1;
-    document.getElementById("input_value").innerHTML = input_value;
-
-    var invisible_number = Math.floor(Math.random() * 100);
-    document.getElementById("invisible").innerHTML = invisible_number;
+    var number1 = Math.floor(Math.random() * 50);
+    document.getElementById("num1").innerHTML = number1;
+    var number2 = Math.floor(Math.random() * 49);
+    document.getElementById("num2").innerHTML = number2;
 
     var numbers_to_dropdown = [...Array(100).keys()];
     numbers_to_dropdown = shuffle(numbers_to_dropdown);
@@ -65,7 +58,6 @@
         option.value = option.innerHTML = num;
         select.appendChild(option);
     });
-
 
     var isFinished = false;
     CountDown(4);
