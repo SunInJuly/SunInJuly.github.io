@@ -12,4 +12,31 @@
 
 
 <body class="bg-light">
+<form action="" method="get" onsubmit="checkAnswer(input_value, 5)">
+    <div class="form-group" style="margin: 90px 50px 50px 90px;">
+        <div class="container">
+            <h3 class="timer">
+                <span class="nowrap" id="timeLeft">Осталось времени:</span>
+                <span class="nowrap" id="countdown"></span>
+
+            </h3>
+            <h2>
+                <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
+                <span class="nowrap" id="input_value">  10 </span>
+            </h2>
+
+            <input name="text" id="answer" type="text" required> <br>
+
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </div>
+    </div>
+</form>
+
 </body>
+
+<script>
+    var input_value = Math.floor(Math.random() * 1000) + 1;
+    document.getElementById("input_value").innerHTML = input_value;
+    var isFinished = false;
+    CountDown(3);
+</script>
