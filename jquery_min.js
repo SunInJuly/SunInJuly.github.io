@@ -19,10 +19,7 @@ function httpGet(theUrl)
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
-    return xmlHttp.responseText;
-
-	
-   
+    return xmlHttp.responseText;  
 }
 
 
@@ -105,14 +102,18 @@ function checkTask2(input_value) {
     }
 }
 
-function checkSelectTask() {
+function checkSelectTask(number1, number2) {
     select = document.getElementById('dropdown')
     var value = select.options[select.selectedIndex].value;
-    if (invisible_number == value) {
-        checkAnswer(input_value, 4);
-    }
-    else {
-        alert("В списке выбран неправильный номер, попробуйте еще раз")
+    if (!window.isFinished) {
+        if (number1 + number2 == value) {
+            var hashcode = getHashcode(4);
+            alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+        } else {
+            alert("В списке выбран неправильный номер, попробуйте еще раз");
+        }
+    } else {
+        alert("Время вышло!");
     }
 }
 
