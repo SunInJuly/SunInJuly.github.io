@@ -107,7 +107,7 @@ function checkSelectTask(number1, number2) {
     var value = select.options[select.selectedIndex].value;
     if (!window.isFinished) {
         if (number1 + number2 == value) {
-            var hashcode = getHashcode(4);
+            var hashcode = getHashcode(5);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
             alert("В списке выбран неправильный номер, попробуйте еще раз");
