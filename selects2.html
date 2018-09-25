@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="jquery_min.js"></script>
+    <meta charset="UTF-8">
+    <title>Select magic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+
+
+<body class="bg-light">
+<h3 class="timer">
+    <span class="nowrap" id="timeLeft">Осталось времени:</span>
+    <span class="nowrap" id="countdown">
+</span>
+
+</h3>
+
+<div class="container" style="padding-top: 90px;">
+
+    <form action="" onsubmit="checkSelectTask(number1, number2)">
+        <h2>
+            <span class="nowrap"> Найдите сумму чисел: </span>
+            <span class="nowrap" id="num1">  1 </span>  
+            <span class="nowrap" > и </span>                        
+            <span class="nowrap" id="num2">  1 </span>
+        </h2>
+
+        <div style="padding-bottom: 10px;">
+            <select id="dropdown" class="custom-select" size="10" multiple="multiple">
+                <option selected>Выберите правильный ответ</option>
+
+            </select>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-default">Отправить</button>
+
+    </form>
+</div>
+</body>
+<script>
+    var number1 = Math.floor(Math.random() * 50);
+    document.getElementById("num1").innerHTML = number1;
+    var number2 = Math.floor(Math.random() * 49);
+    document.getElementById("num2").innerHTML = number2;
+
+    var numbers_to_dropdown = [...Array(100).keys()];
+    numbers_to_dropdown = shuffle(numbers_to_dropdown);
+    var select = document.getElementById('dropdown');
+    numbers_to_dropdown.forEach(function (num) {
+        var option = document.createElement('option');
+        option.value = option.innerHTML = num;
+        select.appendChild(option);
+    });
+
+    var isFinished = false;
+    CountDown(4);
+</script>
+</html>
