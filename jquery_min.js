@@ -137,3 +137,7 @@ function shuffle(a) {
     }
     return a;
 }
+
+function raise_alert(text) {
+    alert(text);
+}
