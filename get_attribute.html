@@ -31,8 +31,8 @@
             <div>
                 <div>
                     <h2>
-                        <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
-                        <img src="images/pirate.png" height="40" width="40" class="nowrap" id="input_value" valuex=0>?</span>
+                        <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x лежит в </span>
+                        <img src="images/chest.png" height="40" width="40" id="treasure" valuex="0">
                     </h2>
                 </div>
 
@@ -55,8 +55,7 @@
   <script>
     var input_value = Math.floor(Math.random() * 1000) + 1;
     var isFinished = false;
-    console.log(input_value);
-    document.getElementById("input_value").setAttribute("valuex", input_value);
+    document.getElementById("treasure").setAttribute("valuex", input_value);
     CountDown(10);
   </script>
 </body>
