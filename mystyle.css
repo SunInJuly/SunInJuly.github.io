@@ -1,3 +1,63 @@
+html {
+  position: relative;
+}
+
+body {
+  min-height: 100%;
+
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #9ba4b2;
+}
+
+.bd-footer {
+    padding: 4rem 0;
+    margin-top: 4rem;
+    font-size: 85%;
+    text-align: center;
+    background-color: #f7f7f7
+}
+
+.bd-footer a {
+    font-weight: 600;
+    color: #464a4c
+}
+
+.bd-footer a:hover {
+    color: #0275d8
+}
+
+.bd-footer p {
+    margin-bottom: 10px;
+}
+
+@media (min-width: 576px) {
+    .bd-footer {
+        text-align:left
+    }
+}
+
+.bd-footer-links {
+    padding-left: 0;
+    margin-bottom: 1rem
+}
+
+.bd-footer-links li {
+    display: inline-block
+}
+
+.bd-footer-links li+li {
+    margin-left: 1rem
+}
+
 .nowrap {
     white-space: nowrap;
 }

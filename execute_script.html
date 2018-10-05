@@ -16,7 +16,7 @@
   <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 
-<body class="bg-light">
+<body class="bg-white">
   <h3 class="timer">
       <span class="nowrap" id="timeLeft">Осталось времени:</span>
       <span class="nowrap" id="countdown">
@@ -46,10 +46,26 @@
           <input class="form-check-input" type="radio" name="ruler" id="robotsRule" value="robots">
           <label class="form-check-label" for="robotsRule">Роботы рулят</label>  
       </div>
-      <button type="submit" class="btn btn-default">Отправить</button>
+      <button type="submit" class="btn btn-default" style="margin-bottom: 1000px;">Отправить</button>
     </form>
 
   </div>
+
+  <footer class="bd-footer bg-light text-muted" style="height: 60vh;">
+      <div class="container">
+        <ul class="bd-footer-links">
+          <li><a href="http://suninjuly.github.io/">Main page</a></li>
+          <li><a href="http://suninjuly.github.io/math.html">Math quiz</a></li>
+          <li><a href="http://suninjuly.github.io/treasure.html">Treasure quiz</a></li>
+          <li><a href="https://stepik.org/course/575/syllabus">Go to the course</a></li>
+        </ul>
+        <p>What is Selenium?</p>
+        <p>Selenium automates browsers. That's it! What you do with that power is entirely up to you. Primarily, it is for automating web applications for testing purposes, but is certainly not limited to just that. Boring web-based administration tasks can (and should!) be automated as well.</p>
+        <p>What is Python?</p>
+        <p>Python is an interpreted high-level programming language for general-purpose programming. Created by Guido van Rossum and first released in 1991, Python has a design philosophy that emphasizes code readability, notably using significant whitespace. It provides constructs that enable clear programming on both small and large scales. In July 2018, Van Rossum stepped down as the leader in the language community after 30 years</p>
+      </div>
+  </footer>
+
   <script>
     var input_value = Math.floor(Math.random() * 1000) + 1;
     var isFinished = false;
