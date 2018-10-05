@@ -92,19 +92,8 @@ function checkAnswer(input_value, task_number) {
     }
 }
 
-// show result for math task
-function checkTask2(input_value) {
-    var task = 2;
-    if (document.getElementById("robotsRule").checked) {
-        checkAnswer(input_value, task);
-    } else {
-        alert("Роботы должны рулить!");
-    }
-}
-
-// show result for math task
-function checkTask6(input_value) {
-    var task = 6;
+// show result for math related tasks
+function checkTask(input_value, task) {
     if (document.getElementById("robotsRule").checked) {
         checkAnswer(input_value, task);
     } else {
