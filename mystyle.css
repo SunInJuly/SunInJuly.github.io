@@ -14,10 +14,18 @@
 }
 
 .block {
-
     margin: 10px 0px 0px 10px;
 }
+
 .invisible_numbers {
 
     color: #f8f9fa;
+}
+
+.form-check-custom {
+	margin-bottom: 20px;
+}
+
+.form-radio-custom {
+	margin-bottom: 10px;
 }
