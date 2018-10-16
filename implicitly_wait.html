@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple registration form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script src="jquery_min.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+  <h3 class="timer">
+      <span class="nowrap" id="timeLeft">Осталось времени:</span>
+      <span class="nowrap" id="countdown"></span>
+
+  </h3>
+
+  <div class="container" style="padding-top: 90px;">
+
+    <h1>Привет</h1>
+    <p>Заполните поля этой формы с помощью методов find и разных локаторов. </p>
+    <p>Для поиска элементов задайте ожидание с помощью implicit_wait(). </p>
+    <p>После заполнения формы нажмите кнопку Submit, чтобы увидеть проверочный код. </p>
+    <p>Элементы формы появятся через: <span class="nowrap" id="delay-display"></span> сек </p>
+
+    <form action="#" method="get" onsubmit="showResult(10)">
+      <div class = "form-group">
+        <label>First name:*</label>
+        <!-- <input type="text" name="first_name" class = "form-control" required maxlength="32" placeholder="Enter your first name"> -->
+      </div>
+      <div class = "form-group">
+        <label>Last name:*</label>
+        <!-- <input type="text" name="last_name" class = "form-control" required maxlength="32"> -->
+      </div>
+      <div class = "form-group">
+        <label>City:*</label>
+        <!-- <input type="text" name="city" class = "form-control" required maxlength="32"> -->
+      </div>
+      <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+    </form>
+  <script type="text/javascript">
+    var delay = Math.floor(Math.random() * (10000 - 3000)) + 3000;
+    var delay_display = document.querySelector("#delay-display");
+    delay_display.innerHTML = delay;
+
+    window.onload = function() {
+      setTimeout(add_elts, delay);
+    };
+
+    function add_elts() {
+      var form_elt = document.querySelector('form');
+      var group_elt0 = document.querySelector('form div:nth-child(1)');
+      var input_elt0 = document.createElement('input');
+      input_elt0.className = "form-control";
+      input_elt0.type = "text";
+      input_elt0.name = "first_name";
+      input_elt0.required = true;
+      input_elt0.maxlength = "32";
+      input_elt0.placeholder = "Enter your first name";
+      group_elt0.appendChild(input_elt0);
+      var group_elt1 = document.querySelector('form div:nth-child(2)');
+      var input_elt1 = document.createElement('input');
+      input_elt1.className = "form-control";
+      input_elt1.type = "text";
+      input_elt1.name = "last_name";
+      input_elt1.required = true;
+      input_elt1.maxlength = "32";
+      input_elt1.placeholder = "Enter your last name";
+      group_elt1.appendChild(input_elt1);
+      var group_elt2 = document.querySelector('form div:nth-child(3)');
+      var input_elt2 = document.createElement('input');
+      input_elt2.className = "form-control";
+      input_elt2.type = "text";
+      input_elt2.name = "city";
+      input_elt2.required = true;
+      input_elt2.maxlength = "32";
+      input_elt2.placeholder = "Enter your city";
+      group_elt2.appendChild(input_elt2);
+      var button = document.createElement('button');
+      button.className="btn btn-default";
+      button.type="submit";
+      button.innerHTML="Submit";
+      form_elt.appendChild(button);
+      var isFinished = false;
+      CountDown(1);
+    };
+
+
+
+  </script>
+</body>
+</html>
+
