@@ -20,7 +20,6 @@
 </head>
 
 <body class="bg-light">
-
   <h3 class="timer">
       <span class="nowrap" id="timeLeft">Осталось времени:</span>
       <span class="nowrap" id="countdown"></span>
@@ -30,34 +29,21 @@
   <div class="container" style="padding-top: 90px;">
 
     <h1>Привет</h1>
-    <p>Заполните поля этой формы с помощью методов find и разных локаторов. </p>
-    <p>Для поиска элементов задайте ожидание с помощью implicitly_wait(). </p>
+    <p>Используйте метод element_to_be_clickable, чтобы определить момент, когда кнопка "Показать форму" станет активной.</p>
+    <p>Заполните поля формы с помощью методов find и разных локаторов. </p>
     <p>После заполнения формы нажмите кнопку Submit, чтобы увидеть проверочный код. </p>
-    <p><strong>Поля этой формы скоро загрузятся. Просто надо немного подождать..</strong></p>
+    <strong>Эта кнопка скоро станет активной. Просто надо немного подождать..</strong>
+    <button id="show-button" class="btn btn-default" disabled="" onclick="create_form();">Показать форму</button>
 
-    <form action="#" method="get" onsubmit="showResult(10)">
-      <div class = "form-group">
-        <label>First name:*</label>
-        <!-- <input type="text" name="first_name" class = "form-control" required maxlength="32" placeholder="Enter your first name"> -->
-      </div>
-      <div class = "form-group">
-        <label>Last name:*</label>
-        <!-- <input type="text" name="last_name" class = "form-control" required maxlength="32"> -->
-      </div>
-      <div class = "form-group">
-        <label>City:*</label>
-        <!-- <input type="text" name="city" class = "form-control" required maxlength="32"> -->
-      </div>
-      <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-    </form>
   <script type="text/javascript">
     var delay = Math.floor(Math.random() * (10000 - 3000)) + 3000;
 
     window.onload = function() {
-      setTimeout(add_elts, delay);
+      setTimeout(enable_button, delay);
     };
 
   </script>
+
 </body>
 </html>
 

@@ -140,3 +140,107 @@ function shuffle(a) {
 function raise_alert(text) {
     alert(text);
 }
+
+// implicit wait
+function add_elts() {
+  var form_elt = document.querySelector('form');
+  var group_elt0 = document.querySelector('form div:nth-child(1)');
+  var input_elt0 = document.createElement('input');
+  input_elt0.className = "form-control";
+  input_elt0.type = "text";
+  input_elt0.name = "first_name";
+  input_elt0.required = true;
+  input_elt0.maxlength = "32";
+  input_elt0.placeholder = "Enter your first name";
+  group_elt0.appendChild(input_elt0);
+  var group_elt1 = document.querySelector('form div:nth-child(2)');
+  var input_elt1 = document.createElement('input');
+  input_elt1.className = "form-control";
+  input_elt1.type = "text";
+  input_elt1.name = "last_name";
+  input_elt1.required = true;
+  input_elt1.maxlength = "32";
+  input_elt1.placeholder = "Enter your last name";
+  group_elt1.appendChild(input_elt1);
+  var group_elt2 = document.querySelector('form div:nth-child(3)');
+  var input_elt2 = document.createElement('input');
+  input_elt2.className = "form-control";
+  input_elt2.type = "text";
+  input_elt2.name = "city";
+  input_elt2.required = true;
+  input_elt2.maxlength = "32";
+  input_elt2.placeholder = "Enter your city";
+  group_elt2.appendChild(input_elt2);
+  var button = document.createElement('button');
+  button.className="btn btn-default";
+  button.type="submit";
+  button.innerHTML="Submit";
+  form_elt.appendChild(button);
+  var isFinished = false;
+  CountDown(1);
+};
+
+// explicit wait
+function enable_button() {
+  var show_elt = document.querySelector("#show-button");
+  show_elt.disabled = false;    
+}
+
+function create_form() {
+  var container_elt = document.querySelector(".container");  
+  var form_elt = document.createElement('form');
+  form_elt.action = "#";
+  form_elt.method = "get";
+  form_elt.setAttribute("onsubmit", "showResult(11);");
+  form_elt.style = "margin-top: 50px;";
+  container_elt.appendChild(form_elt);
+  
+  // create first group
+  var group1 = document.createElement('div');
+  group1.className = "form-group";
+  form_elt.appendChild(group1);
+
+  var label1 = document.createElement('label');
+  label1.innerHTML = "First name:*";
+  label1.setAttribute("for", "first_name");
+  group1.appendChild(label1);
+
+  var input1 = document.createElement('input');
+  group1.appendChild(input1);
+  input1.setAttribute("class", "form-control");
+  input1.setAttribute("id", "first_name");
+  input1.setAttribute("type", "text");
+  input1.setAttribute("name", "first_name");
+  input1.setAttribute("required", "true");
+  input1.setAttribute("maxlength", "32");
+  input1.setAttribute("placeholder", "Enter your first name");
+
+  // create second group
+  var group2 = document.createElement('div');
+  group2.className = "form-group";
+  form_elt.appendChild(group2);
+  var group2_elt = document.querySelector("form .form-group:nth-child(2)");
+
+  var label2 = document.createElement('label');
+  label2.innerHTML = "Last name:*";
+  label2.setAttribute("for", "last_name");
+  group2_elt.appendChild(label2);
+
+  var input2 = document.createElement('input');
+  input2.className = "form-control";
+  input2.type = "text";
+  input2.name = "last_name";
+  input2.required = true;
+  input2.maxlength = "32";
+  input2.placeholder = "Enter your last name";
+  group2_elt.appendChild(input2);
+
+
+  var button = document.createElement('button');
+  button.className="btn btn-default";
+  button.type="submit";
+  button.innerHTML="Submit";
+  form_elt.appendChild(button);
+  var isFinished = false;
+  CountDown(1);
+};
