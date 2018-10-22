@@ -191,7 +191,7 @@ function create_form() {
   var form_elt = document.createElement('form');
   form_elt.action = "#";
   form_elt.method = "get";
-  form_elt.setAttribute("onsubmit", "showResult(11);");
+  form_elt.setAttribute("onsubmit", "showResult(12);");
   form_elt.style = "margin-top: 50px;";
   container_elt.appendChild(form_elt);
   
