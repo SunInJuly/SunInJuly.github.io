@@ -177,7 +177,7 @@ function add_elts() {
   button.innerHTML="Submit";
   form_elt.appendChild(button);
   var isFinished = false;
-  CountDown(1);
+  CountDown(2);
 };
 
 // explicit wait
