@@ -118,8 +118,8 @@ function checkSelectTask(number1, number2) {
 
 // show result when timer done
 function showResult(task) {
-    var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"]
-    var randomWarning = warnings[Math.floor(Math.random()*warnings.length)]
+    var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"];
+    var randomWarning = warnings[Math.floor(Math.random()*warnings.length)];
     if (!window.isFinished) {
         var hashcode = getHashcode(task);
         alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
@@ -135,10 +135,6 @@ function shuffle(a) {
         [a[i], a[j]] = [a[j], a[i]];
     }
     return a;
-}
-
-function raise_alert(text) {
-    alert(text);
 }
 
 // implicit wait

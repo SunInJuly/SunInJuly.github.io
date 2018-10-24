@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
     <script src="jquery_min.js"></script>
     <meta charset="UTF-8">
     <title>Alert redirect</title>
@@ -23,12 +26,14 @@
             <h3 style="padding: 20px">
                 <span id="simple_text"> Настоящее волшебство это математика! </span>
             </h3>
-            <h2>
-                <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
-                <span class="nowrap" id="input_value">  10 </span>
-            </h2>
 
-            <input name="text" id="answer" type="text" required> <br>
+            <div class="form-group">
+                <label>
+                    <span class="nowrap"> Чему равно log10(abs(12*sin(x))), где x =  </span>
+                    <span class="nowrap" id="input_value">  10 </span><span>?</span>
+                </label>
+                <input class="form-control" name="text" id="answer" type="text" required>
+            </div>
 
             <button type="submit" class="btn btn-primary">Отправить</button>
         </div>

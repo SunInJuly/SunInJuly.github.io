@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
     <script src="jquery_min.js"></script>
     <meta charset="UTF-8">
     <title>Accept alert</title>
@@ -12,14 +15,25 @@
 
 
 <body class="bg-light">
-<form action="alert_redirect.html" method="get" onsubmit="raise_alert('Точно хотите?')">
+
+<!-- <form action="alert_redirect.html" method="get" onsubmit="raise_alert('Точно хотите?')"> -->
+<form action="alert_redirect.html" method="get">
     <div class="form-group" style="margin: 90px 50px 50px 90px;">
         <div class="container">
-
-
             <button type="submit" class="btn btn-primary">Хочу отправиться в волшебное путешествие</button>
         </div>
     </div>
 </form>
+
+<script type="text/javascript">
+    form_elt = document.querySelector("form");
+    btn_elt = document.querySelector("button");
+    btn_elt.addEventListener("click", function(event) {
+        event.preventDefault();
+        if (confirm('Точно хотите?')) {
+           form_elt.submit();
+        };
+    })
+</script>
 
 </body>
