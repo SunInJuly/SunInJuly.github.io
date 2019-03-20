@@ -2,10 +2,10 @@ function GetURLParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
+    for (var i = 0; i < sURLVariables.length; i++)
     {
         var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
+        if (sParameterName[0] == sParam)
         {
             return sParameterName[1];
         }
@@ -19,13 +19,13 @@ function httpGet(theUrl)
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
     xmlHttp.send( null );
-    return xmlHttp.responseText;  
+    return xmlHttp.responseText;
 }
 
 
 function getHashcode(problem_number)
 {
-	
+
 try {
 		var raw = httpGet('http://worldclockapi.com/api/json/utc/now');
 		var data = JSON.parse(raw);
@@ -34,13 +34,13 @@ try {
 
 	}
 	catch (e)
-{	
+{
 		var now = new Date();
     console.log("Using local time: ", Math.round(now.getTime() / 1000))
 }
     return Math.log(Math.round(now.getTime() / 1000) * problem_number);
 
-	
+
 }
 
 
@@ -168,7 +168,7 @@ function add_elts() {
   input_elt2.placeholder = "Enter your city";
   group_elt2.appendChild(input_elt2);
   var button = document.createElement('button');
-  button.className="btn btn-default";
+  button.className="btn btn-primary";
   button.type="submit";
   button.innerHTML="Submit";
   form_elt.appendChild(button);
@@ -179,18 +179,18 @@ function add_elts() {
 // explicit wait
 function enable_button() {
   var show_elt = document.querySelector("#show-button");
-  show_elt.disabled = false;    
+  show_elt.disabled = false;
 }
 
 function create_form() {
-  var container_elt = document.querySelector(".container");  
+  var container_elt = document.querySelector(".container");
   var form_elt = document.createElement('form');
   form_elt.action = "#";
   form_elt.method = "get";
   form_elt.setAttribute("onsubmit", "showResult(12);");
   form_elt.style = "margin-top: 50px;";
   container_elt.appendChild(form_elt);
-  
+
   // create first group
   var group1 = document.createElement('div');
   group1.className = "form-group";

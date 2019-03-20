@@ -21,36 +21,36 @@
 <!-- initially we make button disabled for 1 s-->
 <body class="bg-light">
 
-  <div class="container" style="padding-top: 90px;">
+  <div class="container" id="container" style="padding-top: 90px;">
 
     <h1>Привет</h1>
     <p>Нажмите кнопку "Проверить", чтобы получить результат.</p>
+  </div>
 
-    <form action="#" method="get" onsubmit="showMessage();">
-    </form>
   <script type="text/javascript">
 		function addButton() {
-			var form_elt = document.querySelector('form');
-			var button_elt = document.createElement('button');
-			button_elt.className = "btn btn-primary";
-			button_elt.disabled = true;
-			button_elt.id = "check";
-			button_elt.innerText = "Проверить";
-			button_elt.type = "submit";
-			form_elt.appendChild(button_elt);
+      let container_elt = document.querySelector('#container');
+      let button_elt = document.createElement('button');
+      button_elt.className = "btn btn-primary";
+      button_elt.disabled = true;
+      button_elt.id = "check";
+      button_elt.innerText = "Проверить";
+      button_elt.setAttribute('onclick', "showMessage();");
+      button_elt.type = "submit";
+      container_elt.appendChild(button_elt);
 		}
 
     function enableButton() {
-     	var button_elt = document.querySelector('button');
+     	let button_elt = document.querySelector('button');
       button_elt.disabled = false;
     }
 
     function showMessage() {
-      var body_elt = document.querySelector('body');
-      var form_elt = document.querySelector('form');
-      var button_elt = document.querySelector('button');
-      form_elt.removeChild(button_elt);
-      var message_elt = document.createElement('div');
+      let body_elt = document.querySelector('body');
+      let container_elt = document.querySelector('#container');
+      let button_elt = document.querySelector('button');
+      container_elt.removeChild(button_elt);
+      let message_elt = document.createElement('div');
       message_elt.className = "container";
       message_elt.id = "check_message";
       message_elt.innerText = "Проверка прошла успешно!";
