@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple registration form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <script src="jquery_min.js"></script>
+
+</head>
+<!-- initially we make button disabled for 1 s-->
+<body class="bg-light">
+
+  <div class="container" style="padding-top: 90px;">
+
+    <h1>Привет</h1>
+    <p>Нажмите кнопку "Проверить", чтобы получить результат.</p>
+
+    <form action="#" method="get" onsubmit="showMessage();">
+    </form>
+  <script type="text/javascript">
+		function addButton() {
+			var form_elt = document.querySelector('form');
+			var button_elt = document.createElement('button');
+			button_elt.className = "btn btn-primary";
+			button_elt.disabled = true;
+			button_elt.id = "check";
+			button_elt.innerText = "Проверить";
+			button_elt.type = "submit";
+			form_elt.appendChild(button_elt);
+		}
+
+    function enableButton() {
+     	var button_elt = document.querySelector('button');
+      button_elt.disabled = false;
+    }
+
+    function showMessage() {
+      var body_elt = document.querySelector('body');
+      var form_elt = document.querySelector('form');
+      var button_elt = document.querySelector('button');
+      form_elt.removeChild(button_elt);
+      var message_elt = document.createElement('div');
+      message_elt.className = "container";
+      message_elt.id = "check_message";
+      message_elt.innerText = "Проверка прошла успешно!";
+      body_elt.appendChild(message_elt);
+    }
+
+    window.onload = function() {
+			addButton();
+      setTimeout(enableButton, 1000);
+    };
+
+  </script>
+</body>
+</html>
+
