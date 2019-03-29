@@ -81,7 +81,9 @@ function CountDown(interval) {
 function checkAnswer(input_value, task_number) {
     if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
-        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-13) {
+        var inputValue = document.getElementById("input_value").innerHTML;
+        console.log(result);
+        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
             var hashcode = getHashcode(task_number);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
@@ -89,6 +91,17 @@ function checkAnswer(input_value, task_number) {
         }
     } else {
         alert("Время вышло!");
+    }
+}
+
+function checkPrice() {
+    const price = document.getElementById("price").innerHTML;
+    if (price.toString() === "10000 RUR") {
+        document.getElementById("solve").disabled = false;
+        startTimer();
+    } else {
+        alert("Вы не смогли купить дом вашей мечты :( Попробуйте еще раз.");
+        window.location.reload();
     }
 }
 
