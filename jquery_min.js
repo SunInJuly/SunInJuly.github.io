@@ -44,7 +44,7 @@ try {
 }
 
 
-function CountDown(interval) {
+function countDown(interval) {
 
     var countDownTime = new Date();
     countDownTime = new Date(countDownTime.getTime() + 1000 * interval);
@@ -150,6 +150,30 @@ function shuffle(a) {
     return a;
 }
 
+// change price for explicit wait task
+function startAuction() {
+    // change price every 500ms
+    let cost = Math.floor(Math.random() * 5) * 1000 + 11000;
+    let x = setInterval(function () {
+        cost = cost - 500;
+        document.getElementById("price").innerHTML = cost.toString() + " RUR";
+    }, 1000);
+
+    setTimeout(function () {
+        clearInterval(x);
+    }, 15000);
+}
+
+// start anticapcha for explicit wait task
+function startTimer() {
+    let form = document.getElementsByTagName("form");
+    form[0].style.display = "block";
+    var input_value = Math.floor(Math.random() * 1000) + 1;
+    document.getElementById("input_value").innerHTML = input_value;
+    var isFinished = false;
+    countDown(3);
+}
+
 // implicit wait
 function add_elts() {
   var form_elt = document.querySelector('form');
@@ -186,7 +210,7 @@ function add_elts() {
   button.innerHTML="Submit";
   form_elt.appendChild(button);
   var isFinished = false;
-  CountDown(2);
+  countDown(2);
 };
 
 // explicit wait
@@ -251,5 +275,5 @@ function create_form() {
   button.innerHTML="Submit";
   form_elt.appendChild(button);
   var isFinished = false;
-  CountDown(1);
+  countDown(1);
 };

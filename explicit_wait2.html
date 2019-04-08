@@ -19,13 +19,13 @@
 
 </head>
 
-<body class="bg-light">
+<body onload="startAuction();" class="bg-light">
 
     <div class="container" style="padding-top: 90px;">
 
       <h1>Привет</h1>
         <p>Используйте метод text_to_be_present_in_element, чтобы определить момент, когда стоимость дома станет оптимальной.</p>
-        <p>Оптимальная цена: 10000 RUR. Если цена станет меньше, то дом купит кто-то другой.</p>
+        <p>Оптимальная цена: 10000 RUR. Если цена будет больше или меньше, то дом купит кто-то другой.</p>
         <p>После подтверждения покупки ваш скрипт должен решить математическую задачу, чтобы подтвердить свою работоспособность.</p>
 
         <div class="card" style="width: 20rem;">
@@ -43,7 +43,7 @@
         </div>
     </div>
 
-    <form action="" method="get" onsubmit="checkAnswer(input_value, 22)">
+    <form action="" method="get" onsubmit="checkAnswer(input_value, 22)" style="display:None">
         <div class="form-group" style="margin: 90px 50px 50px 90px;">
             <div class="container">
 
@@ -68,25 +68,6 @@
         </div>
     </form>
 
-  <script>
-    let cost = Math.floor(Math.random() * 8) * 1000 + 11000;
-    let x = setInterval(function () {
-        cost = cost - 500;
-        document.getElementById("price").innerHTML = cost.toString() + " RUR";
-    }, 500);
-
-    setTimeout(function () {
-        clearInterval(x);
-    }, 10000);
-
-    function startTimer() {
-        var input_value = Math.floor(Math.random() * 1000) + 1;
-        document.getElementById("input_value").innerHTML = input_value;
-        var isFinished = false;
-        CountDown(3);
-    }
-
-  </script>
 </body>
 </html>
 
