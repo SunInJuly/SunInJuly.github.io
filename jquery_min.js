@@ -156,7 +156,12 @@ function startAuction() {
     let cost = Math.floor(Math.random() * 5) * 1000 + 11000;
     let x = setInterval(function () {
         cost = cost - 500;
-        document.getElementById("price").innerHTML = cost.toString() + " RUR";
+        if (cost < 9500) {
+            document.getElementById("book").disabled = true;
+        }
+        else {
+            document.getElementById("price").innerHTML = cost.toString() + " RUR";
+        }
     }, 1000);
 
     setTimeout(function () {
