@@ -17,9 +17,30 @@
         <div class="container">
 
 
-            <button type="submit" class="btn btn-primary">Хочу отправиться в волшебное путешествие</button>
+            <button type="submit" class="trollface" class="btn btn-primary">Хочу отправиться в волшебное путешествие</button>
         </div>
     </div>
 </form>
 
 </body>
+
+<style>
+.trollface
+{
+  opactiy:0;
+  animation: troll 3s;
+  animation-iteration-count: infinite;
+  position:relative;
+}
+
+@keyframes troll
+{
+  0% { opacity: 0; transform: rotate(0deg); width:200px;left:0px; background-color:red}
+  16.66%{background-color:orange;}
+  33.33%{background-color:yellow;}
+  50% { opacity: 1; width: 400px;left:400px; background-color:lime;}
+  66.66%{background-color:turquoise;}
+  83.33%{background-color:#9900ff;}
+  100% { opacity: 0; transform: rotate(360deg);width:200px;left:0px; background-color:red}
+}
+</style>
