@@ -74,16 +74,16 @@ function countDown(interval) {
             $("button").attr("disabled", true);
         }
     }, 100);
-
 }
 
 // check answer for math task
 function checkAnswer(input_value, task_number) {
     if (!window.isFinished) {
         var result = parseFloat(document.getElementById("answer").value);
-        var inputValue = document.getElementById("input_value").innerHTML;
+        // var inputValue = document.getElementById("input_value").innerHTML;
         console.log(result);
-        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
+        // if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
+        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-13) {
             var hashcode = getHashcode(task_number);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
@@ -119,7 +119,7 @@ function checkSelectTask(number1, number2) {
     var value = select.options[select.selectedIndex].value;
     if (!window.isFinished) {
         if (number1 + number2 == value) {
-            var hashcode = getHashcode(5);
+            var hashcode = getHashcode(2203);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
             alert("В списке выбран неправильный номер, попробуйте еще раз");
