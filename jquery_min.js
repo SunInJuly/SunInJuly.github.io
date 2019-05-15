@@ -1,3 +1,5 @@
+var input_value;
+
 function GetURLParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
@@ -173,7 +175,7 @@ function startAuction() {
 function startTimer() {
     let form = document.getElementsByTagName("form");
     form[0].style.display = "block";
-    var input_value = Math.floor(Math.random() * 1000) + 1;
+    input_value = Math.floor(Math.random() * 1000) + 1;
     document.getElementById("input_value").innerHTML = input_value;
     var isFinished = false;
     countDown(3);
