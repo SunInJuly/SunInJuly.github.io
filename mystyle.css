@@ -89,3 +89,9 @@ footer {
 .form-radio-custom {
 	margin-bottom: 10px;
 }
+
+.title {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
