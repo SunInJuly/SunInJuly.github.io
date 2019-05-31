@@ -15,7 +15,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
             integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
             crossorigin="anonymous"></script>
-    <script src="jquery_min.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/297116411/jquery-min.js"></script>
 
 </head>
 
@@ -27,7 +27,7 @@
 
     <h1>Привет</h1>
     <p> Найдите среди кучи этих ссылок нужную! </p>
-   
+
 
   <a href="#"   class="close-window">305763</a>
 <a href="#" class="close-window">643051</a>
@@ -62,12 +62,12 @@
 let closing_links = document.getElementsByClassName("close-window");
 
 for (var i = 0 ; i < closing_links.length ; ++i) {
-    
+
         closing_links[i].addEventListener("click", function() {
             	window.open(document.URL, '_self', '');
 	window.close();
         });
-   
+
 }
 </script>
 
