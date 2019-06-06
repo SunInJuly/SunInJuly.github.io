@@ -51,7 +51,7 @@
 
   </div>
 
-  <footer class="bd-footer bg-light text-muted" style="height: 70vh;">
+  <footer class="bd-footer bg-light text-muted"">
       <div class="container">
         <ul class="bd-footer-links">
           <li><a href="http://suninjuly.github.io/">Main page</a></li>
@@ -67,6 +67,8 @@
   </footer>
 
   <script>
+    let footerHeight = Math.ceil((1-221/window.innerHeight)*100);
+    document.querySelector('footer').style.height=`${footerHeight}vh`;
     var input_value = Math.floor(Math.random() * 1000) + 1;
     var isFinished = false;
     document.getElementById("input_value").innerHTML = input_value;
