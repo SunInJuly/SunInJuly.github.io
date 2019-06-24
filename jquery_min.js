@@ -85,7 +85,7 @@ function checkAnswer(input_value, task_number) {
         // var inputValue = document.getElementById("input_value").innerHTML;
         console.log(result);
         // if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
-        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-13) {
+        if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-12) {
             var hashcode = getHashcode(task_number);
             alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
         } else {
