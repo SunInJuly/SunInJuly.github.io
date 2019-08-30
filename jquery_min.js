@@ -87,7 +87,7 @@ function checkAnswer(input_value, task_number) {
         // if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
         if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-11) {
             var hashcode = getHashcode(task_number);
-            alert("Congrats, you passed the task! Copy this code as the answer to Stepik quiz: " + hashcode);
+            alert("Congrats, you've passed the task! Copy this code as the answer to Stepik quiz: " + hashcode);
         } else {
             alert("Wrong answer!");
         }
@@ -122,7 +122,7 @@ function checkSelectTask(number1, number2) {
     if (!window.isFinished) {
         if (number1 + number2 == value) {
             var hashcode = getHashcode(2203);
-            alert("Congrats, you passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
+            alert("Congrats, you've passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
         } else {
             alert("You chose wrong number in the list, try again.");
         }
@@ -137,7 +137,7 @@ function showResult(task) {
     var randomWarning = warnings[Math.floor(Math.random()*warnings.length)];
     if (!window.isFinished) {
         var hashcode = getHashcode(task);
-        alert("Congrats, you passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
+        alert("Congrats, you've passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
     }
     else {
         alert(randomWarning);
