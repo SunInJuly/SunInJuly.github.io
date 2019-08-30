@@ -162,7 +162,7 @@ function startAuction() {
             document.getElementById("book").disabled = true;
         }
         else {
-            document.getElementById("price").innerHTML =  + "$" + cost.toString();
+            document.getElementById("price").innerHTML =  "$" + cost.toString();
         }
     }, 1000);
 
