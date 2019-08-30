@@ -70,8 +70,8 @@ function countDown(interval) {
         if (distance < 0) {
 
             clearInterval(x);
-            document.getElementById("countdown").innerHTML = " не осталось времени :(";
-            document.getElementById("timeLeft").innerHTML = "Упс, ";
+            document.getElementById("countdown").innerHTML = " time is up :(";
+            document.getElementById("timeLeft").innerHTML = "Oops, ";
             window.isFinished = true;
             $("button").attr("disabled", true);
         }
@@ -87,12 +87,12 @@ function checkAnswer(input_value, task_number) {
         // if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(inputValue)))) <= 1e-13) {
         if (Math.abs(result - Math.log(Math.abs(12 * Math.sin(input_value)))) <= 1e-11) {
             var hashcode = getHashcode(task_number);
-            alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+            alert("Congrats, you passed the task! Copy this code as the answer to Stepik quiz: " + hashcode);
         } else {
-            alert("Неверный ответ!");
+            alert("Wrong answer!");
         }
     } else {
-        alert("Время вышло!");
+        alert("Time is up!");
     }
 }
 
@@ -112,7 +112,7 @@ function checkTask(input_value, task) {
     if (document.getElementById("robotsRule").checked) {
         checkAnswer(input_value, task);
     } else {
-        alert("Роботы должны рулить!");
+        alert("Robots should rule!");
     }
 }
 
@@ -122,22 +122,22 @@ function checkSelectTask(number1, number2) {
     if (!window.isFinished) {
         if (number1 + number2 == value) {
             var hashcode = getHashcode(2203);
-            alert("Поздравляем, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+            alert("Congrats, you passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
         } else {
-            alert("В списке выбран неправильный номер, попробуйте еще раз");
+            alert("You chose wrong number in the list, try again.");
         }
     } else {
-        alert("Время вышло!");
+        alert("Time is up!");
     }
 }
 
 // show result when timer done
 function showResult(task) {
-    var warnings = ["Время вышло!", "А вы упорный! Пожалуйста, заполните форму с помощью скрипта, а не руками"];
+    var warnings = ["Time is up!", "You are tenacious! Please, fill out the form using a script, not hands!"];
     var randomWarning = warnings[Math.floor(Math.random()*warnings.length)];
     if (!window.isFinished) {
         var hashcode = getHashcode(task);
-        alert("Поздравляю, вы справились! Вставьте это число в поле ответа на Stepik: " + hashcode);
+        alert("Congrats, you passed the task! Copy this code as the answer for Stepik quiz: " + hashcode);
     }
     else {
         alert(randomWarning);

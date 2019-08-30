@@ -25,9 +25,9 @@
 
   <div class="container" style="padding-top: 90px;">
 
-    <h1>Привет</h1>
-    <p> Найдите среди кучи этих ссылок нужную! </p>
-   
+    <h1>Hello!</h1>
+    <p>Find the correct link! </p>
+
 
   <a href="find_link_text_redirect1.html"   class="close-window">305763</a>
 <a href="find_link_text_redirect2.html" class="close-window">643051</a>
@@ -62,12 +62,12 @@
 let closing_links = document.getElementsByClassName("close-window");
 
 for (var i = 0 ; i < closing_links.length ; ++i) {
-    
+
         closing_links[i].addEventListener("click", function() {
             	window.open(document.URL, '_self', '');
 	window.close();
         });
-   
+
 }
 </script>
 
