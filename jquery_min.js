@@ -64,7 +64,7 @@ function countDown(interval) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("countdown").innerHTML = seconds + " секунд";
+        document.getElementById("countdown").innerHTML = seconds + " seconds";
 
         // If the count down is finished, write some text
         if (distance < 0) {
@@ -98,11 +98,11 @@ function checkAnswer(input_value, task_number) {
 
 function checkPrice() {
     const price = document.getElementById("price").innerHTML;
-    if (price.toString() === "10000 RUR") {
+    if (price.toString() === "$100") {
         document.getElementById("solve").disabled = false;
         startTimer();
     } else {
-        alert("Вы не смогли купить дом вашей мечты :( Попробуйте еще раз.");
+        alert("You failed to rent your dream home :( Try again.");
         window.location.reload();
     }
 }
@@ -155,14 +155,14 @@ function shuffle(a) {
 // change price for explicit wait task
 function startAuction() {
     // change price every 500ms
-    let cost = Math.floor(Math.random() * 5) * 1000 + 11000;
+    let cost = Math.floor(Math.random() * 5) * 10 + 110;
     let x = setInterval(function () {
-        cost = cost - 500;
-        if (cost < 9500) {
+        cost = cost - 5;
+        if (cost < 95) {
             document.getElementById("book").disabled = true;
         }
         else {
-            document.getElementById("price").innerHTML = cost.toString() + " RUR";
+            document.getElementById("price").innerHTML =  + "$" + cost.toString();
         }
     }, 1000);
 

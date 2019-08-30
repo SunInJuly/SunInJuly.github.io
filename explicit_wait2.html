@@ -23,22 +23,22 @@
 
     <div class="container" style="padding-top: 90px;">
 
-      <h1>Привет</h1>
-        <p>Используйте метод text_to_be_present_in_element, чтобы определить момент, когда стоимость дома станет оптимальной.</p>
-        <p>Оптимальная цена: 10000 RUR. Если цена будет больше или меньше, то дом купит кто-то другой.</p>
-        <p>После подтверждения покупки ваш скрипт должен решить математическую задачу, чтобы подтвердить свою работоспособность.</p>
+      </h2>Hello!</h2>
+        <p>Use the text_to_be_present_in_element method to wait the optimal price.</p>
+        <p>Optimal price is $100. If the price is more or less, someone else rents the house.</p>
+        <p>After confirming the purchase, your script should solve the mathematical problem in order to confirm its operability.</p>
 
         <div class="card" style="width: 20rem;">
           <img class="card-img-top" src="./images/pretty_house.jpg" alt="Pretty house">
           <div class="card-body">
               <div style="width:100%">
-                <h5 class="card-title" style="display:inline;">Дом у озера</h5>
+                <h5 class="card-title" style="display:inline;">Lake house</h5>
                 <h5 id="price" style="display:inline;float:right"></h5>
               </div>
             <div class="card-text">
-                Замечательный дом для вашей семьи.
+                Lovely family house.
             </div>
-            <button id="book" class="btn btn-primary" onclick="checkPrice();">Забронировать</button>
+            <button id="book" class="btn btn-primary" onclick="checkPrice();">Book</button>
           </div>
         </div>
     </div>
@@ -53,17 +53,17 @@
 
                 </h3>
                 <h3 style="padding: 20px">
-                    <span id="simple_text"> Настоящее волшебство - это математика! </span>
+                    <span id="simple_text"> Real magic is math! </span>
                 </h3>
                 <div class="form-group">
                     <label>
-                        <span class="nowrap"> Чему равно ln(abs(12*sin(x))), где x =  </span>
+                        <span class="nowrap"> What is ln(abs(12*sin(x))), where x =  </span>
                         <span class="nowrap" id="input_value"> N </span><span>?</span>
                     </label>
                     <input class="form-control" name="text" id="answer" type="text" required>
                 </div>
 
-                <button id="solve" type="submit" class="btn btn-primary" disabled>Отправить</button>
+                <button id="solve" type="submit" class="btn btn-primary" disabled>Submit</button>
             </div>
         </div>
     </form>

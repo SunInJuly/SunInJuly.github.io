@@ -20,7 +20,7 @@
 <form action="alert_redirect.html" method="get">
     <div class="form-group" style="margin: 90px 50px 50px 90px;">
         <div class="container">
-            <button type="submit" class="btn btn-primary">Хочу отправиться в волшебное путешествие</button>
+            <button type="submit" class="btn btn-primary">I want to go on a magical journey!</button>
         </div>
     </div>
 </form>
@@ -30,7 +30,7 @@
     btn_elt = document.querySelector("button");
     btn_elt.addEventListener("click", function(event) {
         event.preventDefault();
-        if (confirm('Точно хотите?')) {
+        if (confirm('Are you sure?')) {
            form_elt.submit();
         };
     })

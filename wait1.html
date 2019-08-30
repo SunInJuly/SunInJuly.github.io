@@ -23,38 +23,40 @@
 
   <div class="container" id="container" style="padding-top: 90px;">
 
-    <h1>Привет</h1>
-    <p>Нажмите кнопку "Проверить", чтобы получить результат.</p>
+    </h2>Hello!</h2>
+    <p>Click the "Check" button to get the result.</p>
+
+  </div>
 
   <script type="text/javascript">
-    function addButton() {
-      let container_elt = document.querySelector('#container');
-      let button_elt = document.createElement('button');
-      button_elt.className = "btn btn-primary";
-      button_elt.id = "check";
-      button_elt.innerText = "Проверить";
-      button_elt.setAttribute('onclick', "showMessage();");
-      button_elt.type = "submit";
-      container_elt.appendChild(button_elt);
-    }
+      function addButton() {
+        let container_elt = document.querySelector('#container');
+        let button_elt = document.createElement('button');
+        button_elt.className = "btn btn-primary";
+        button_elt.id = "verify";
+        button_elt.innerText = "Verify";
+        button_elt.setAttribute('onclick', "showMessage();");
+        button_elt.type = "submit";
+        container_elt.appendChild(button_elt);
+      }
 
-    function showMessage() {
-      let body_elt = document.querySelector('body');
-      let container_elt = document.querySelector('#container');
-      let button_elt = document.querySelector('button');
-      container_elt.removeChild(button_elt);
-      let message_elt = document.createElement('div');
-      message_elt.className = "container";
-      message_elt.id = "check_message";
-      message_elt.innerText = "Проверка прошла успешно!";
-      body_elt.appendChild(message_elt);
-    }
+      function showMessage() {
+        let body_elt = document.querySelector('body');
+        let container_elt = document.querySelector('#container');
+        let button_elt = document.querySelector('button');
+        container_elt.removeChild(button_elt);
+        let message_elt = document.createElement('div');
+        message_elt.className = "container";
+        message_elt.id = "verify_message";
+        message_elt.innerText = "Verification was successful!";
+        body_elt.appendChild(message_elt);
+      }
 
-    window.onload = function() {
-      setTimeout(addButton, 1000);
-    };
+      window.onload = function() {
+        setTimeout(addButton, 1000);
+      };
 
-  </script>
+    </script>
 </body>
 </html>
 
